@@ -1,4 +1,5 @@
 import { useRef, useState } from "react"
+import { act } from "react-dom/test-utils";
 import { useFrame } from "react-three-fiber"
 
 export default function Box(props) {
@@ -8,6 +9,7 @@ export default function Box(props) {
 
   // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false);
+  const [active, setActive] = useState(false);
   // const [size, setSize] = useState(1);
   // const makeBigger = () => {
   //   setSize(size + 0.5);
@@ -23,6 +25,7 @@ export default function Box(props) {
 
   const onClick = (evt) => {
     console.log("click");
+    setActive(!active);
   }
 
   return (
@@ -34,7 +37,7 @@ export default function Box(props) {
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}>
       <boxBufferGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'red' : 'pink'} />
+      <meshStandardMaterial color={hovered ? (active ? 'blue' : 'orange') : (active ? 'red' : 'grey')} />
     </mesh>
   )
 }
