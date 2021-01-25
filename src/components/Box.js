@@ -1,6 +1,6 @@
-import { useRef, useState } from "react"
+import { useRef, useState } from "react";
 import { act } from "react-dom/test-utils";
-import { useFrame } from "react-three-fiber"
+import { useFrame } from "react-three-fiber";
 
 export default function Box(props) {
   // This reference will give us direct access to the mesh
