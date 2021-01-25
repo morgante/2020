@@ -5,7 +5,7 @@ import { useFrame } from "react-three-fiber"
 export default function Box(props) {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
-  const size = 1 + (1 * props.percent);
+  const size = 1 + 1 * props.percent;
 
   // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false);
@@ -20,7 +20,7 @@ export default function Box(props) {
 
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => {
-    mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+    // mesh.current.rotation.x = mesh.current.rotation.y += 0.01
   });
 
   const onClick = (evt) => {
@@ -32,6 +32,7 @@ export default function Box(props) {
     <mesh
       {...props}
       ref={mesh}
+      position={[-1.2, 3 * props.percent, -3 * props.percent]}
       scale={[size, size, size]}
       onClick={onClick}
       onPointerOver={(event) => setHover(true)}

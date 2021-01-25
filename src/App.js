@@ -3,6 +3,7 @@ import React, { Suspense, useRef, useState, useEffect } from 'react';
 import { Canvas, Dom } from 'react-three-fiber';
 import { Perf } from 'r3f-perf';
 import Box from './components/Box';
+import Timeline from './components/Timeline';
 import { OrbitControls } from '@react-three/drei';
 
 function App() {
@@ -32,7 +33,8 @@ function App() {
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <OrbitControls enableZoom={false} />
-        <Box position={[-1.2, 0, 0]} percent={scrollPercent} />
+        <Box percent={scrollPercent} />
+        <Timeline percent={scrollPercent} />
         <Perf />
       </Canvas>
     <div>
